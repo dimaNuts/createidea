@@ -60,3 +60,12 @@
 https://learn.javascript.ru — бесплатный учебник по JavaScript
 
 https://reactjs.org/docs/getting-started.html — официальная документация React
+
+## Автоматическое форматирование кода через Prettier
+
+### Шаги
+
+- `pnpm i -D prettier` — установить Prettier в dev зависимости
+- создать конфиг.файл `.prettierrc.yml`
+- добавить в package.json скрипт ` "prettify": "prettier --log-level warn --cache --write src/**/*.{ts,tsx,js,json,yml,scss} !**/{node_modules,dist}/**/*"`
+- `pnpm prettify` — отформатировать все файлы проекта
