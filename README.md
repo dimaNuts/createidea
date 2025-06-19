@@ -183,3 +183,17 @@ https://trpc.io — официальный сайт tRPC
 ### Полезные ссылки
 
 https://trpc.io — официальный сайт tRPC
+
+# Качество кода
+
+## Проверка типов
+
+### Цель урока
+
+- Создать скрипт для проверки типов, чтобы быть уверенным в том, что ваш код скорее всего работает
+
+### Шаги
+
+- Создать в `backend/package.json` поле `"types": "tsc --noEmit --project ./tsconfig.json"`
+- Создать в `webapp/package.json` поле `"types": "tsc --noEmit --project ./tsconfig.app.json && tsc --noEmit --project ./tsconfig.node.json"`
+- `pnpm types` — проверить типы
