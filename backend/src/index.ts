@@ -7,11 +7,11 @@ const expressApp = express()
 expressApp.use(cors())
 
 expressApp.use(
-	'/trpc',
-	trpcExpress.createExpressMiddleware({
-		router: trpcRouter,
-	})
+  '/trpc',
+  trpcExpress.createExpressMiddleware({
+    router: trpcRouter,
+  })
 )
 expressApp.listen(3000, () => {
-	console.info('Listening at http://localhost:3000')
+  console.info('Listening at http://localhost:3000')
 })

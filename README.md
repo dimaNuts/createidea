@@ -197,3 +197,22 @@ https://trpc.io — официальный сайт tRPC
 - Создать в `backend/package.json` поле `"types": "tsc --noEmit --project ./tsconfig.json"`
 - Создать в `webapp/package.json` поле `"types": "tsc --noEmit --project ./tsconfig.app.json && tsc --noEmit --project ./tsconfig.node.json"`
 - `pnpm types` — проверить типы
+
+## Создание скриптов для монорепы
+
+### Цели урока
+
+- Вынести общие дев-зависимости в корневой package.json
+- Завести общие скрипты для всех приложений монорепы, чтобы было удобнее работать
+
+### Шаги
+
+- `"scripts": {
+  "b": "pnpm --filter @ideanick/backend",
+  "w": "pnpm --filter @ideanick/webapp",
+  "dev": "pnpm -r --parallel dev",
+  "types": "concurrently \"pnpm b types\" \"pnpm w types\"",
+  "prettify": "pnpm -r --parallel prettify"
+}` - создать в корневом package.json
+
+-`pnpm i -w -D concurrently` — установить concurrently для запуска нескольких скриптов одновременно
