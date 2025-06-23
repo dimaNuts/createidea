@@ -215,4 +215,19 @@ https://trpc.io — официальный сайт tRPC
   "prettify": "pnpm -r --parallel prettify"
 }` - создать в корневом package.json
 
--`pnpm i -w -D concurrently` — установить concurrently для запуска нескольких скриптов одновременно
+- `pnpm i -w -D concurrently` — установить concurrently для запуска нескольких скриптов одновременно
+
+## Стандартизация стиля TypeScript кода с помощью ESLint
+
+### Шаги
+
+- заменить поля в package.json в webapp `"devDependencies": {
+  "@types/react": "^19.1.2",
+  "@types/react-dom": "^19.1.2",
+  "@vitejs/plugin-react": "^4.4.1",
+  "prettier": "^3.5.3",
+  "vite": "^6.3.5"
+}`
+- `pnpm i -w -D eslint eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-plugin-react globals prettier-eslint typescript-eslint` -установить пакеты в корневой package.json
+
+- создать `eslint.config.js`, `webapp/eslint.config.mjs`, `backend/eslint.config.js`

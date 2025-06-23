@@ -2,7 +2,7 @@ import { trpc } from '../../lib/trpc'
 
 export const AllIdeasPage = () => {
   const { data, error, isError, isLoading, isFetching } = trpc.getIdeas.useQuery()
-  console.log(data)
+
   if (isLoading || isFetching) {
     return <span>Loading...</span>
   }
