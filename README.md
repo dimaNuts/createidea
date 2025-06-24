@@ -219,9 +219,13 @@ https://trpc.io — официальный сайт tRPC
 
 ## Стандартизация стиля TypeScript кода с помощью ESLint
 
+### Цель урока
+
+- Стандартизировать стиль кода, чтобы снизить когнитивную нагрузку разработчика
+
 ### Шаги
 
-- заменить поля в package.json в webapp `"devDependencies": {
+- убрать поля `eslint` в package.json в webapp `"devDependencies": {
   "@types/react": "^19.1.2",
   "@types/react-dom": "^19.1.2",
   "@vitejs/plugin-react": "^4.4.1",
@@ -230,4 +234,17 @@ https://trpc.io — официальный сайт tRPC
 }`
 - `pnpm i -w -D eslint eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-plugin-react globals prettier-eslint typescript-eslint` -установить пакеты в корневой package.json
 
-- создать `eslint.config.js`, `webapp/eslint.config.mjs`, `backend/eslint.config.js`
+- создать `eslint.config.js`, `webapp/eslint.config.mjs`, `backend/eslint.config.mjs`
+- редактируем backend/tsconfig.json
+- добавить в корневой package.json `"type": "module"`
+- создать папку .vscode
+- добавить в backend/package.json
+  `"lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts ."`
+- добавить в webapp/package.json
+  `"lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts,.tsx ."`
+- добавить в package.json
+  `"lint": "concurrently 'pnpm b lint' 'pnpm w lint'"`
+
+### Вывод
+
+- ESLint — это инструмент для статического анализа кода
