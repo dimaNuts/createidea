@@ -9,6 +9,7 @@
     "dev": "pnpm -r --parallel dev",
     "lint": "concurrently \"pnpm b lint\" \"pnpm w lint\"",
     "types": "concurrently \"pnpm b types\" \"pnpm w types\"",
+    "prepare": "git config core.hooksPath .git-hooks || echo 'Not in a git repo'",
     "prettify": "pnpm -r --parallel prettify"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "eslint-plugin-prettier": "^5.5.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.2.0",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
     "prettier-eslint": "^16.4.2",
     "rimraf": "^6.0.1",
