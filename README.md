@@ -225,7 +225,7 @@ https://trpc.io — официальный сайт tRPC
 
 ### Шаги
 
-- убрать поля `eslint` в package.json в webapp `"devDependencies": {
+- убрать поля `eslint` в webapp/package.json `"devDependencies": {
   "@types/react": "^19.1.2",
   "@types/react-dom": "^19.1.2",
   "@vitejs/plugin-react": "^4.4.1",
@@ -248,3 +248,19 @@ https://trpc.io — официальный сайт tRPC
 ### Вывод
 
 - ESLint — это инструмент для статического анализа кода
+
+## Автоматический вызов проверок и фиксов при коммите
+
+### Цель урока
+
+- Причёсывать и проверять код на стильность автоматчиески при коммите, чтобы гадкий код физически не мог попасть в репозиторий
+
+### Шаги
+
+- `pnpm i -w -D lint-staged`
+- создать в корневой папке .git-hooks
+- создать в папке .git-hooks файл pre-commit
+- через wsl(у кого винда) выполнить chmod +x pre-commit
+- `pnpm i`
+- создать `.lintstagedrc.yml`, `webaap/.lintstagedrc.yml`,
+  `backend/.lintstagedrc.yml`
