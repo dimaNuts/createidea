@@ -7,9 +7,7 @@ const ideas = [
   { nick: 'cool-idea-nick-4', name: 'Idea 4', description: 'Description of idea 4...' },
   { nick: 'cool-idea-nick-5', name: 'Idea 5', description: 'Description of idea 5...' },
 ]
-if (Math.random()) {
-  console.info(123)
-}
+
 const trpc = initTRPC.create()
 
 export const trpcRouter = trpc.router({
