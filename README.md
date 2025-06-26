@@ -264,3 +264,31 @@ https://trpc.io — официальный сайт tRPC
 - `pnpm i`
 - создать `.lintstagedrc.yml`, `webaap/.lintstagedrc.yml`,
   `backend/.lintstagedrc.yml`
+
+# Роутер
+
+## Добавление React Router
+
+### Цели урока
+
+- Сделать приложение многостраничным
+- Использовать параметры адреса страницы на самой странице
+
+### Шаги
+
+- создать папку ViewIdeaPage, ViewIdeaPage/index.tsx
+- добавить ViewIdeaPage в App.tsx
+- `pnpm w i react-router-dom react-dom` — установить react-router-dom и react-dom в воркспейс webapp
+- "обернуть" страницы приложения BrowserRouter --> Routes --> pages
+- привязать pages к роутеру Route `<Route path="/" element={<AllIdeasPage />} />`
+  `<Route path="/ideas/:ideaNick" element={<ViewIdeaPage />} />`
+- добавить `useParams()` для связи параметра(напр.ideaNick) из адресной строки и заголовка страницы
+- добавить `Link` для `idea.name` в AllIdeasPage
+- создать в `webapp/src/lib/rutes.ts`, в которой будут храниться роутеры(маршруты), создадим `getAllIdeasRoute`, `getViewIdeaRoute`. Применим их в App.tsx и для Link в AllIdeasPage
+
+### Выводы
+
+- React Router — это инструмент для создания многостраничных приложений
+- В React Router есть всё, что нужно и что не нужно. Его избыточность неприятна, но и ладно
+- Альтернативы React Router: wouter, reach-router
+- Чтобы добавить страницу вам нужно: создать компонент в папке pages, добавить путь к странице в lib/routes.ts, добавить роут в App.tsx
