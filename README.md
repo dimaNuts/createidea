@@ -283,8 +283,8 @@ https://trpc.io — официальный сайт tRPC
 - привязать pages к роутеру Route `<Route path="/" element={<AllIdeasPage />} />`
   `<Route path="/ideas/:ideaNick" element={<ViewIdeaPage />} />`
 - добавить `useParams()` для связи параметра(напр.ideaNick) из адресной строки и заголовка страницы
-- добавить `Link` для `idea.name` в AllIdeasPage
-- создать в `webapp/src/lib/rutes.ts`, в которой будут храниться роутеры(маршруты), создадим `getAllIdeasRoute`, `getViewIdeaRoute`. Применим их в App.tsx и для Link в AllIdeasPage
+- добавить `Link` для страниц `idea.name` в AllIdeasPage
+- создать в `webapp/src/lib/routes.ts`, в которой будут храниться роутеры(маршруты), создадим `getAllIdeasRoute`, `getViewIdeaRoute`. Применим их в App.tsx и для Link в AllIdeasPage
 
 ### Выводы
 
@@ -292,3 +292,27 @@ https://trpc.io — официальный сайт tRPC
 - В React Router есть всё, что нужно и что не нужно. Его избыточность неприятна, но и ладно
 - Альтернативы React Router: wouter, reach-router
 - Чтобы добавить страницу вам нужно: создать компонент в папке pages, добавить путь к странице в lib/routes.ts, добавить роут в App.tsx
+
+## Улучшение типизации React Router
+
+### Цели урока
+
+- Занести всё, что связано с роутером в routes.ts, чтобы одно и то же не было размазно по нескольким файлам
+- Сделать более внятную типизацию параметров роутов
+- Разобраться на начальном уровне с генериками тайпскрипта
+
+### Шаги
+
+- создать функцию `getRouteParams`, которая будет возвращать `{ ideaNick: ':ideaNick' }`
+- добавить алиас `viewIdeaRouteParams`, применить в webapp/src/App.tsx
+- создать тип `ViewIdeaRouteParams`, который будет возвращать `{ ideaNick: string }`
+- применить `ViewIdeaRouteParams` в webapp/src/pages/ViewIdeaPage
+
+### Выводы
+
+- Быть типозависмым — это хорошо
+- Рефакторить когда что-то не нравится — это хорошо
+- Сначала вы работаете на типы, потом типы работают на вас
+- Позже мы ещё усовершенствуем объявления роутов
+
+### Шаги
